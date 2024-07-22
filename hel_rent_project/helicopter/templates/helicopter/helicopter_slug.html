@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+</head>
+<body>
+<h1>{{title}}</h1>
+{{helicopter.description}}
+<p>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    {% for f in form %}
+        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</p>
+        <div class="form-error"></div>
+    {% endfor %}
+    <label><input type="checkbox" required>Согласие на обработку персональных данных</label>
+    <p><button type="submit">Отправить</button>
+</form>
+</body>
+</html>
